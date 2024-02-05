@@ -1,0 +1,15 @@
+name: 'Run Analysis Script'
+description: 'Performs data analysis'
+inputs:
+  supabase_url:
+    description: 'Supabase URL'
+    required: true
+  supabase_key:
+    description: 'Supabase Key'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    NEXT_PUBLIC_SUPABASE_URL: ${{ inputs.supabase_url }}
+    SUPABASE_SERVICE_ROLE_KEY: ${{ inputs.supabase_key }}
